@@ -1,0 +1,53 @@
+@import "../../assets/styles";
+a {
+    text-decoration: none;
+}
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
+}
+.flower-box {
+    float: left;
+    margin: 10px;
+    width: 345px;
+    height: 420px;
+    background-color: #f0f0f0;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .image-box {
+        width: 325px;
+        height: 340px;
+        margin: 10px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .flower-name {
+        display: block;
+        position: static;
+        color: #000;
+        margin-left: 10px;
+        font-size: 18px;
+    }
+    .flower-price {
+        display: block;
+        color: $money-color;
+        margin-left: 10px;
+        font-size: $font-medium;
+    }
+    .status {
+        float: right;
+        margin-right: 10px;
+        .available-status {
+            color: blueviolet;
+        }
+        .out-of-stock-status {
+            color: red;
+        }
+    }
+}
+.btn-add-flower {
+    margin: 30px;
+    font-size: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+

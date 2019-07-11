@@ -1,0 +1,29 @@
+@import "../../assets/styles";
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+}
+.cart-box {
+    margin-top: 110px;
+    .cart-item {
+        margin: 10px;
+        width: 95%;
+        height: 250px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding: 10px;
+        .image {
+            height: 230px;
+            width: 230px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .money {
+            color: $money-color;
+            font-size: $font-medium;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+}

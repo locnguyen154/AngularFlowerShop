@@ -1,0 +1,50 @@
+import {Component, OnInit} from '@angular/core';
+import {MatDialogRef} from '@angular/material/dialog';
+import {AccountModel} from '../models/AccountModel';
+import {FormBuilder, Validators} from '@angular/forms';
+import {AccountService} from '../service/account.service';
+
+@Component({
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit {
+    loginForm;
+
+    constructor(
+        private dialogRef: MatDialogRef<LoginComponent>,
+        private formBuilder: FormBuilder,
+        private accountService: AccountService,
+    ) {
+    }
+
+    ngOnInit(): void {
+        this.loginForm = this.formBuilder.group({
+            userName: [null, Validators.required],
+            passWord: [null, Validators.required],
+        });
+    }
+
+    onNoClick() {
+        this.dialogRef.close();
+    }
+
+    login(account: AccountModel) {
+        if (this.accountService.isValid(account)) {
+            this.loginSuccessfully(account);
+        } else {
+            alert('Account invalid!');
+        }
+        this.dialogRef.close();
+    }
+
+    loginSuccessfully(account: AccountModel) {
+        alert('Successfully!');
+        sessionStorage.setItem('session', account.userName);
+        document.getElementById('btn-login').setAttribute('value', sessionStorage.getItem('session'));
+        document.getElementById('btn-login').setAttribute('disabled', 'true');
+        document.getElementById('btn-add-flower').setAttribute('type', 'button');
+        document.getElementById('btn-logout').setAttribute('type', 'button');
+    }
+}

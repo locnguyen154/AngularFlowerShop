@@ -1,0 +1,78 @@
+@import "../../assets/styles";
+.box-detail {
+    margin-top: 120px;
+    padding: 15px;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .image-detail {
+        height: 600px;
+        width: 600px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .detail-info {
+        margin: 50px;
+        .flower-name {
+            margin: 10px;
+            font-size: $font-medium;
+            font-style: italic;
+            font-weight: bold;
+        }
+        .flower-price {
+            margin: 10px;
+            font-size: $font-medium;
+            color: $money-color;
+        }
+        .remaining-stock {
+            margin: 10px;
+            font-size: $font-medium;
+        }
+        .total-money-title {
+            margin: 10px;
+            font-size: $font-medium;
+        }
+        .total-money {
+            margin: 10px;
+            border: none;
+            width: auto;
+            color: $money-color;
+            font-size: $font-medium;
+        }
+        .currency {
+            font-size: $font-medium;
+        }
+        .quantity {
+            margin: 10px;
+            float: left;
+            font-size: $font-medium;
+        }
+        .quantity-input {
+            padding-left: 20px;
+            width: 160px;
+        }
+    }
+    .btn-box {
+        width: 75%;
+        position: absolute;
+        top: 45%;
+        left: 15%;
+        //left: 60%;
+        margin: 10px;
+        .btn-custom {
+            margin: 10px;
+        }
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+

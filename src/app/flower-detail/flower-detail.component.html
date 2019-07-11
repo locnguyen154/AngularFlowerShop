@@ -1,0 +1,51 @@
+<div class="container box-detail">
+    <div class="row" *ngIf = 'flower'>
+        <div class="col-sm-6 col-xs-6 col-md-6">
+            <div class="image-detail" [ngStyle]="{backgroundImage: 'url(' + flower.imageLink + ')'}"></div>
+        </div>
+        <div class="col-sm-6 col-xs-6 col-md-6">
+            <div class="detail-info">
+                <p class="flower-name">{{flower.name}}</p>
+                <p class="flower-price">{{flower.price | currency: 'VND'}}
+
+                <p class="remaining-stock">Remaining stock:  {{flower.remainingStock}} item</p>
+
+                <div>
+<!--                    (<i class="currency">&#8363;</i>)-->
+                    <span class="total-money-title">Total money </span>
+                    <input [ngModel]="flower.totalMoney | currency: 'VND'" (ngModelChange)="flower.totalMoney=$event"
+                           type="text" id="total-money" class="total-money" readonly>
+                </div>
+                <div>
+                    <span class="quantity">Quantity  </span>
+                    <div class="input-group number-spinner quantity-input">
+                    <span class="input-group-btn">
+                        <button id="quantity-down" (click)="changeQuantityFromButton(-1)" class="btn btn-default" data-dir="dwn">
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </button>
+                    </span>
+                        <input [(ngModel)]="flower.quantity" id="quantity" type="number" (input)="changeQuantityFromInput()"
+                               (change)="onChangeQuantity()" class="form-control text-center">
+                        <span class="input-group-btn">
+                        <button id="quantity-up" (click)="changeQuantityFromButton(1)" class="btn btn-default" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row btn-box">
+        <div class="col-sm-6 col-md-6 col-xs-6"> </div>
+        <div class="col-sm-6 col-md-6 col-xs-6">
+            <div>
+                <input type="button" (click)="addToCart(flower)" class="btn btn-primary btn-custom" value="Add To Cart">
+                <input type="hidden" id="btn-edit-flower" (click)="openDialogEditFlower(flower.id)" class="btn btn-default btn-custom" value="Edit">
+                <input id="btn-remove-flower" type="hidden" (click) = "removeFlower(flower.id)" class="btn btn-danger btn-custom" value="Remove">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("input[name='quantity']").TouchSpin();
+</script>

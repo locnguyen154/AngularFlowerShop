@@ -1,0 +1,23 @@
+<div class="container" style="margin-top: 100px">
+    <input id="btn-add-flower" (click)="openDialogAddFlower()" type="hidden"  class="btn btn-primary btn-add-flower" value="Add a flower">
+    <div *ngFor = "let flower of flowers">
+        <a [routerLink]="['/flowers', flower.id]" class="flower-box">
+            <div class="image-box" [ngStyle]="{backgroundImage: 'url(' + flower.imageLink + ')'}">
+<!--                <img alt="photo" src="{{flower.imageLink}}" class="image">-->
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label class="flower-name">{{flower.name}}</label>
+                    <label class="flower-price">{{flower.price | currency: 'VND'}}</label>
+                </div>
+                <div class="col-sm-6">
+                    <div class="status">
+                        <label class="available-status" *ngIf="flower.remainingStock > 0">Available</label>
+                        <label class="out-of-stock-status" *ngIf="flower.remainingStock <= 0">Out of stock</label>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<!--routerLink="/add-flower"-->
