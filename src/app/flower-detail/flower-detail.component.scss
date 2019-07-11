@@ -4,8 +4,9 @@
     padding: 15px;
     width: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
     .image-detail {
-        height: 600px;
+        height: 500px;
         width: 600px;
         background-repeat: no-repeat;
         background-position: center;
@@ -54,9 +55,8 @@
     .btn-box {
         width: 75%;
         position: absolute;
-        top: 45%;
+        bottom: 25%;
         left: 15%;
-        //left: 60%;
         margin: 10px;
         .btn-custom {
             margin: 10px;

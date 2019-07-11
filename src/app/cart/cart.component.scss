@@ -9,6 +9,7 @@ input[type=number]::-webkit-inner-spin-button {
         width: 95%;
         height: 250px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
         padding: 10px;
         .image {
             height: 230px;
@@ -21,6 +22,11 @@ input[type=number]::-webkit-inner-spin-button {
             color: $money-color;
             font-size: $font-medium;
         }
+    }
+
+    .btn-submit-order {
+        margin: 20px 50px 20px 20px;
+        float: right;
     }
 
     a {

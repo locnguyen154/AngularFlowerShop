@@ -38,7 +38,10 @@
         <div class="col-sm-6 col-md-6 col-xs-6"> </div>
         <div class="col-sm-6 col-md-6 col-xs-6">
             <div>
-                <input type="button" (click)="addToCart(flower)" class="btn btn-primary btn-custom" value="Add To Cart">
+                <input type="button" *ngIf="flower.remainingStock < 1" (click)="addToCart(flower)"
+                       class="btn btn-primary btn-custom" value="Add To Cart" disabled="disabled">
+                <input type="button" *ngIf="flower.remainingStock > 0" (click)="addToCart(flower)"
+                       class="btn btn-primary btn-custom" value="Add To Cart">
                 <input type="hidden" id="btn-edit-flower" (click)="openDialogEditFlower(flower.id)" class="btn btn-default btn-custom" value="Edit">
                 <input id="btn-remove-flower" type="hidden" (click) = "removeFlower(flower.id)" class="btn btn-danger btn-custom" value="Remove">
             </div>

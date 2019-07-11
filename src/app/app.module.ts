@@ -13,6 +13,7 @@ import { FlowerAddComponent } from './flower-add/flower-add.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SubmitOrderComponent } from './submit-order/submit-order.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         FlowerDetailComponent,
         CartComponent,
         FlowerAddComponent,
-        LoginComponent
+        LoginComponent,
+        SubmitOrderComponent
     ],
     imports: [
         BrowserModule,
@@ -36,7 +38,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
             {path: 'cart', component: CartComponent},
             {path: 'add-flower', component: FlowerAddComponent},
             {path: 'edit-flower/:flowerId', component: FlowerAddComponent},
-            {path: 'login', component: LoginComponent}
+            {path: 'login', component: LoginComponent},
+            {path: 'order', component: SubmitOrderComponent}
         ]),
         FormsModule,
     ],

@@ -1,0 +1,9 @@
+<div class="container submit-dialog">
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" [(ngModel)]="orderInfo.name">
+        <label>Phone Number</label>
+        <input class="form-control" type="text" [(ngModel)]="orderInfo.phoneNumber">
+        <input type="button" (click)="onSubmitOrder()" class="btn btn-default btn-custom" value="Submit">
+    </div>
+</div>

@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {CartService} from '../service/cart.service';
 import {FlowerModel} from '../models/FlowerModel';
+import {MatDialog} from "@angular/material";
+import {OrderInfoModel} from "../models/OrderInfoModel";
+import {SubmitOrderComponent} from "../submit-order/submit-order.component";
 
 @Component({
     selector: 'app-cart',
@@ -12,6 +15,7 @@ export class CartComponent implements OnInit {
 
     constructor(
         private cartService: CartService,
+        private matDialog: MatDialog,
     ) {
     }
 
@@ -27,5 +31,9 @@ export class CartComponent implements OnInit {
             this.cartService.removeItem(index, removeQuantity);
             this.cartService.saveChange();
         }
+    }
+
+    openDialogSubmitOrder() {
+        this.matDialog.open(SubmitOrderComponent);
     }
 }
