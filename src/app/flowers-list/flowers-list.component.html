@@ -6,11 +6,11 @@
 <!--                <img alt="photo" src="{{flower.imageLink}}" class="image">-->
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-xs-6 col-sm-6">
                     <label class="flower-name">{{flower.name}}</label>
                     <label class="flower-price">{{flower.price | currency: 'VND'}}</label>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-xs-6 col-sm-6">
                     <div class="status">
                         <label class="available-status" *ngIf="flower.remainingStock > 0">Available</label>
                         <label class="out-of-stock-status" *ngIf="flower.remainingStock <= 0">Out of stock</label>

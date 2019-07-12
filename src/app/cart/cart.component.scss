@@ -7,20 +7,51 @@ input[type=number]::-webkit-inner-spin-button {
     .cart-item {
         margin: 10px;
         width: 95%;
-        height: 250px;
+        height: auto;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         border-radius: 5px;
         padding: 10px;
         .image {
-            height: 230px;
-            width: 230px;
+            height: 130px;
+            width: 130px;
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
         }
+        .price-title {
+            margin-right: 10px;
+            font-size: $font-small;
+        }
+        .remove-box {
+            margin: 5px 0 5px 0;
+            .remove-title {
+                &:hover {
+                    color: #ff0b00;
+                }
+            }
+        }
+        .quantity-input {
+            margin: 20px 0 0 0;
+            width: 100px;
+            z-index: 0;
+            .quantity {
+                height: 25px;
+                width: 60px;
+            }
+            .btn-change-quantity {
+                height: 25px;
+                .icon-change-quantity {
+                    font-size: 10px;
+                    position: absolute;
+                    top: 6px;
+                    left: 7px;
+                }
+            }
+        }
         .money {
             color: $money-color;
             font-size: $font-medium;
+            margin: 20px 0 0 0;
         }
     }
 
@@ -32,4 +63,15 @@ input[type=number]::-webkit-inner-spin-button {
     a {
         text-decoration: none;
     }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
 }

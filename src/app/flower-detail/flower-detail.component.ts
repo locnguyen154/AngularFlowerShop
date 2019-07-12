@@ -5,6 +5,8 @@ import {FlowerModel} from '../models/FlowerModel';
 import {MatDialog} from '@angular/material';
 import {FlowerAddComponent} from '../flower-add/flower-add.component';
 import {CartService} from '../service/cart.service';
+import {HelperService} from "../service/helper.service";
+import {TopBarComponent} from "../top-bar/top-bar.component";
 
 @Component({
     selector: 'app-flower-detail',
@@ -24,7 +26,7 @@ export class FlowerDetailComponent implements OnInit {
 
     ngOnInit() {
         this.activatedRoute.paramMap.subscribe(params => {
-            this.flower = this.flowersService.getFlowerById(+params.get('flowerId'));
+            this.flower = this.flowersService.getFlower(+params.get('flowerId'));
         });
         this.checkSession();
         this.checkFlower();
@@ -59,14 +61,7 @@ export class FlowerDetailComponent implements OnInit {
         this.flowersService.removeFlower(flowerId);
         this.flowersService.saveChange();
         this.router.navigate(['']);
-        const snackbar = document.getElementById('snackbar');
-        // Add the "show" class to DIV
-        snackbar.className = 'show';
-        // @ts-ignore
-        snackbar.value = 'Your flower has been removed!';
-        // After 3 seconds, remove the show class from DIV
-        // tslint:disable-next-line:only-arrow-functions
-        setTimeout(function() { snackbar.className = snackbar.className.replace('show', ''); }, 3000);
+        HelperService.toastMakeText('Your flower has been removed!');
     }
 
     changeQuantityFromButton(step) {
@@ -96,21 +91,10 @@ export class FlowerDetailComponent implements OnInit {
         }
     }
 
-    formatNumber(numbers) {
-        // format number 1000000 to 1,234,567
-        return numbers.replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
-
     addToCart(flower: FlowerModel) {
         this.cartService.addToCart(flower);
         this.cartService.saveChange();
-        const snackbar = document.getElementById('snackbar');
-        // Add the "show" class to DIV
-        snackbar.className = 'show';
-        // @ts-ignore
-        snackbar.value = 'Your flower has been added to cart!';
-        // After 3 seconds, remove the show class from DIV
-        // tslint:disable-next-line:only-arrow-functions
-        setTimeout(function() { snackbar.className = snackbar.className.replace('show', ''); }, 3000);
+        HelperService.toastMakeText('Your flower has been added to cart!');
+        TopBarComponent.totalQuantity = this.cartService.getTotalQuantity();
     }
 }

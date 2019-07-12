@@ -3,6 +3,7 @@ import {Validators, FormBuilder} from '@angular/forms';
 import {FlowersService} from '../service/flowers.service';
 import {FlowerModel} from '../models/FlowerModel';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {HelperService} from "../service/helper.service";
 
 @Component({
     selector: 'app-flower-add',
@@ -25,7 +26,7 @@ export class FlowerAddComponent implements OnInit {
 
     ngOnInit() {
         if (this.data.flowerId) {
-            this.flower = this.flowersService.getFlowerById(this.data.flowerId);
+            this.flower = this.flowersService.getFlower(this.data.flowerId);
             document.getElementById('btn-edit').setAttribute('type', 'submit');
             this.isAdding = false;
             this.addFlowerForm = this.formBuilder.group( {
@@ -68,14 +69,7 @@ export class FlowerAddComponent implements OnInit {
         flower.totalMoney = 0;
         this.flowersService.addFlower(flower);
         this.flowersService.saveChange();
-        const snackbar = document.getElementById('snackbar');
-        // Add the "show" class to DIV
-        snackbar.className = 'show';
-        // @ts-ignore
-        snackbar.value = 'Add a flower successfully!';
-        // After 3 seconds, remove the show class from DIV
-        // tslint:disable-next-line:only-arrow-functions
-        setTimeout(function() { snackbar.className = snackbar.className.replace('show', ''); }, 3000);
+        HelperService.toastMakeText('Add a flower successfully');
         this.addFlowerForm.reset();
     }
 
@@ -87,14 +81,7 @@ export class FlowerAddComponent implements OnInit {
         flower.remainingStock = +(flower.remainingStock.toString().replace(',',''));
         this.flowersService.editFlower(flower);
         this.flowersService.saveChange();
-        const snackbar = document.getElementById('snackbar');
-        // Add the "show" class to DIV
-        snackbar.className = 'show';
-        // @ts-ignore
-        snackbar.value = 'Edit a flower successfully!';
-        // After 3 seconds, remove the show class from DIV
-        // tslint:disable-next-line:only-arrow-functions
-        setTimeout(function() { snackbar.className = snackbar.className.replace('show', ''); }, 3000);
+        HelperService.toastMakeText('Edit a flower successfully!');
     }
 
     formatNumber(id) {

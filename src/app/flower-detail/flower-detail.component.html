@@ -1,9 +1,9 @@
 <div class="container box-detail">
     <div class="row" *ngIf = 'flower'>
-        <div class="col-sm-6 col-xs-6 col-md-6">
+        <div class="col-sm-6">
             <div class="image-detail" [ngStyle]="{backgroundImage: 'url(' + flower.imageLink + ')'}"></div>
         </div>
-        <div class="col-sm-6 col-xs-6 col-md-6">
+        <div class="col-sm-6">
             <div class="detail-info">
                 <p class="flower-name">{{flower.name}}</p>
                 <p class="flower-price">{{flower.price | currency: 'VND'}}
@@ -11,7 +11,6 @@
                 <p class="remaining-stock">Remaining stock:  {{flower.remainingStock}} item</p>
 
                 <div>
-<!--                    (<i class="currency">&#8363;</i>)-->
                     <span class="total-money-title">Total money </span>
                     <input [ngModel]="flower.totalMoney | currency: 'VND'" (ngModelChange)="flower.totalMoney=$event"
                            type="text" id="total-money" class="total-money" readonly>
@@ -34,10 +33,10 @@
             </div>
         </div>
     </div>
-    <div class="row btn-box">
-        <div class="col-sm-6 col-md-6 col-xs-6"> </div>
-        <div class="col-sm-6 col-md-6 col-xs-6">
-            <div>
+    <div>
+        <div class="col-sm-6"> </div>
+        <div class="col-sm-6">
+            <div class="row btn-box">
                 <input type="button" *ngIf="flower.remainingStock < 1" (click)="addToCart(flower)"
                        class="btn btn-primary btn-custom" value="Add To Cart" disabled="disabled">
                 <input type="button" *ngIf="flower.remainingStock > 0" (click)="addToCart(flower)"
@@ -49,6 +48,3 @@
     </div>
 </div>
 
-<script>
-    $("input[name='quantity']").TouchSpin();
-</script>

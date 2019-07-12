@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {LoginComponent} from '../login/login.component';
+import {CartService} from "../service/cart.service";
 
 @Component({
     selector: 'app-top-bar',
@@ -8,12 +9,20 @@ import {LoginComponent} from '../login/login.component';
     styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit {
+    static totalQuantity: number;
+
     constructor(
-        public dialog: MatDialog,
+        private dialog: MatDialog,
+        private cartService: CartService,
     ) {}
 
     ngOnInit() {
         this.checkSession();
+        TopBarComponent.totalQuantity = this.cartService.getTotalQuantity();
+    }
+
+    get staticTotalQuantity() {
+        return TopBarComponent.totalQuantity;
     }
 
     checkSession() {

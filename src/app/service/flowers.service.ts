@@ -19,7 +19,7 @@ export class FlowersService {
         }
     }
 
-    getFlowerById(flowerId): FlowerModel {
+    getFlower(flowerId): FlowerModel {
         return this.flowers.find(s => s.id === flowerId);
     }
 
@@ -32,15 +32,13 @@ export class FlowersService {
     }
 
     editFlower(flower) {
-        // this.removeFlower(flower.id);
-        // this.addFlower(flower);
-        const index = this.getIndexById(flower.id);
+        const index = this.getIndex(flower.id);
         this.flowers.splice(index, 0, flower);
         this.flowers.splice(index + 1, 1);
     }
 
-    getIndexById(flowerId) {
-        return this.flowers.indexOf(this.getFlowerById(flowerId));
+    getIndex(flowerId) {
+        return this.flowers.indexOf(this.getFlower(flowerId));
     }
 
     removeFlower(flowerId) {

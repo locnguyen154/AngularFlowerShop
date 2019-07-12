@@ -6,6 +6,7 @@ import {FlowerModel} from '../models/FlowerModel';
 })
 export class CartService {
     items: FlowerModel[];
+    totalQuantity = 0;
 
     constructor() {
         this.onInit();
@@ -42,13 +43,12 @@ export class CartService {
         return this.items;
     }
 
-    getItemByIndex(index) {
-        return this.items[index];
-    }
-
-    clearItems() {
-        this.items = [];
-        return this.items;
+    getTotalMoney() {
+        let totalMoney = 0;
+        for (const flower of this.items) {
+            totalMoney += flower.totalMoney;
+        }
+        return totalMoney;
     }
 
     removeItem(index, removeTotal) {
@@ -57,6 +57,14 @@ export class CartService {
         } else {
             this.items[index].quantity -= removeTotal;
         }
+    }
+
+    getTotalQuantity() {
+        this.totalQuantity = 0;
+        for (const flower of this.items) {
+            this.totalQuantity += flower.quantity;
+        }
+        return this.totalQuantity;
     }
 
     saveChange() {

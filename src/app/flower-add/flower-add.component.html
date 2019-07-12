@@ -1,5 +1,6 @@
 <div class="container add-flower-form">
-    <h3 id="title-add-edit" class="text-center">Add flower form</h3>
+    <h3 *ngIf="!flower" class="text-center">Add Flower Form</h3>
+    <h3 *ngIf="flower" class="text-center">Edit Flower Form</h3>
     <form [formGroup]="addFlowerForm" (ngSubmit)="onSubmit(addFlowerForm.value)">
         <div class="form-group">
             <label>Name</label>
@@ -34,7 +35,7 @@
             </span>
         </div>
 
-        <input id="btn-add" type="hidden" class="btn btn-primary btn-custom" value="Add" [disabled]="!addFlowerForm.valid" >
-        <input id="btn-edit" type="hidden" class="btn btn-primary btn-custom" value="Edit" [disabled]="!addFlowerForm.valid">
+        <input id="btn-add" type="hidden" class="btn btn-primary btn-custom" value="Add flower" [disabled]="!addFlowerForm.valid" >
+        <input id="btn-edit" type="hidden" class="btn btn-primary btn-custom" value="Edit flower" [disabled]="!addFlowerForm.valid">
     </form>
 </div>

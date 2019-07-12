@@ -1,9 +1,14 @@
 <div class="container submit-dialog">
     <div class="form-group">
         <label>Name</label>
-        <input class="form-control" type="text" [(ngModel)]="orderInfo.name">
+        <input class="form-control" type="text" [(ngModel)]="orderInfo.name" required>
         <label>Phone Number</label>
-        <input class="form-control" type="text" [(ngModel)]="orderInfo.phoneNumber">
-        <input type="button" (click)="onSubmitOrder()" class="btn btn-default btn-custom" value="Submit">
+        <input class="form-control" type="text" [(ngModel)]="orderInfo.phoneNumber" required>
+        <div class="total-money">
+            <span class="money-title">Total money</span>
+            <span class="money">{{orderInfo.totalMoney | currency: 'VND'}}</span>
+        </div>
+        <input type="button" (click)="onSubmitOrder()" class="btn btn-default btn-custom" value="Submit"
+            [disabled]="!(orderInfo.name.replace(' ', '').length != 0) || !(orderInfo.phoneNumber.length != 0)">
     </div>
 </div>

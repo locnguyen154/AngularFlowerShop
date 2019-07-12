@@ -1,8 +1,26 @@
+@import "../../assets/styles";
 .submit-dialog {
     width: 400px;
     height: 200px;
     .btn-custom {
         float: right;
-        margin: 20px;
+        margin: 20px 0 20px 20px;
+    }
+    .total-money {
+        float: left;
+        margin: 20px 0 0 0;
+        .money {
+            font-size: $font-medium;
+            color: $money-color;
+        }
+        .money-title {
+            font-size: $font-small;
+            margin-right: 20px;
+        }
+    }
+}
+@media (max-width: 400px) {
+    .submit-dialog {
+        width: 230px;
     }
 }

@@ -6,13 +6,15 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     .image-detail {
-        height: 500px;
-        width: 600px;
+        margin: 15px;
+        width: 250px;
+        height: 250px;
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
     }
     .detail-info {
-        margin: 50px;
+        margin: 20px 0 5px 50px;
         .flower-name {
             margin: 10px;
             font-size: $font-medium;
@@ -53,11 +55,7 @@
         }
     }
     .btn-box {
-        width: 75%;
-        position: absolute;
-        bottom: 25%;
-        left: 15%;
-        margin: 10px;
+        margin: 5px 0 10px 50px;
         .btn-custom {
             margin: 10px;
         }
@@ -72,7 +70,7 @@ input::-webkit-inner-spin-button {
 }
 
 input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
-}
+     -moz-appearance:textfield; /* Firefox */
+ }
 
 

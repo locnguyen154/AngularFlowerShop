@@ -13,5 +13,10 @@
         float: right;
     }
 }
+@media (max-width: 400px) {
+    .add-flower-form {
+        width: 230px;
+    }
+}
 
 

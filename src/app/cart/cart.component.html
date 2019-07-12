@@ -1,19 +1,40 @@
 <div class="container cart-box">
     <h3 class="text-center order-title">Ordered list</h3>
-    <div class="row cart-item" *ngFor="let flower of flowers;">
-        <div class="col-sm-3 col-xs-3 col-md-3">
+    <div class="row cart-item" *ngFor="let flower of flowers; index as flowerIndex">
+        <div class="col-sm-3">
             <div class="image" [ngStyle]="{backgroundImage: 'url('+ flower.imageLink +')'}"></div>
         </div>
-        <div class="col-sm-6 col-xs-6 col-md-6">
-            <h3 class="flower-name">{{flower.name}}</h3>
-            <span>Total money </span>
-            <span class="money">{{flower.totalMoney | currency: 'VND'}}</span>
-        </div>
-        <div class="col-sm-3 col-xs-3 col-md-3">
-
+        <div class="col-sm-9">
+            <div class="row">
+                <div class="col-sm-6 col-xs-6">
+                    <h4 class="flower-name">{{flower.name}}</h4>
+                    <span class="price-title">Price     </span>
+                    <span class="money">{{flower.price | currency: 'VND'}}</span>
+                    <div class="remove-box"><a (click)="removeItem(flowerIndex, flower.quantity)" class="remove-title">Remove</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-6">
+                    <div class="input-group number-spinner quantity-input">
+                        <span class="input-group-btn">
+                            <button id="quantity-down" (click)="changeQuantityFromButton(-1, flower)" class="btn btn-default btn-change-quantity"
+                                    data-dir="dwn">
+                                <span class="glyphicon glyphicon-minus icon-change-quantity"></span>
+                            </button>
+                        </span>
+                            <input [(ngModel)]="flower.quantity" id="quantity" type="number" (input)="changeQuantityFromInput(flower)"
+                                       (change)="onChangeQuantity(flower)" class="quantity form-control text-center">
+                        <span class="input-group-btn">
+                            <button id="quantity-up" (click)="changeQuantityFromButton(1, flower)" class="btn btn-default btn-change-quantity"
+                                    data-dir="up"><span class="glyphicon glyphicon-plus icon-change-quantity"></span></button>
+                        </span>
+                    </div>
+                    <p class="money">{{flower.totalMoney | currency: 'VND'}}</p>
+                </div>
+            </div>
         </div>
     </div>
     <div class="btn-submit-order">
-        <input type="button" (click)="openDialogSubmitOrder()" class="btn btn-primary" value="Submit Order">
+        <input type="button" (click)="openDialogSubmitOrder()" class="btn btn-primary" value="Submit Order"
+               [disabled]="!(flowers.length != 0)">
     </div>
 </div>

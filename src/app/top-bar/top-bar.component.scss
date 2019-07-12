@@ -6,28 +6,63 @@
     position: fixed;
     margin: 0;
     z-index: 1;
-    .btn-title {
-        color: #fff;
-        font-size: 35px;
-        margin: 50px 0 0 0;
+    .title {
+        float: left;
+        .btn-title {
+            display: inline-block;
+            white-space: nowrap;
+            color: #fff;
+            font-size: 30px;
+            margin: 10px 0 0 5px;
+        }
     }
-    .btn-login {
+
+    .btn-group-custom {
         float: right;
-        color: #7faaf0;
-        font-size: 20px;
-        margin: 10px 10px 0 0;
-    }
-    .btn-logout {
-        float: right;
-        color: #7faaf0;
-        font-size: 20px;
-        margin: 10px 10px 0 0;
-    }
-    .btn-cart {
-        float: right;
-        color: #7faaf0;
-        font-size: 20px;
-        margin: 10px 10px 0 0;
+        .nav-btn {
+            margin-right: 10px;
+            background-color: white;
+        }
+        .group-custom {
+            padding-right: 0;
+            .group-btn {
+                margin: 0;
+            }
+            @media (max-width: 767px) {
+                .group-btn {
+                    background-color: rgba(77, 96, 101, 0.82);
+                    border-radius: 5px;
+                }
+                .btn-logout {
+                    width: 89%;
+                }
+                .btn-cart {
+                    width: 89%;
+                }
+            }
+        }
+        .btn-login {
+            float: right;
+            color: #7faaf0;
+            font-size: 20px;
+            margin: 10px 10px 0 10px;
+        }
+        .btn-logout {
+            float: right;
+            color: #7faaf0;
+            font-size: 20px;
+            margin: 10px 10px 10px 0;
+        }
+        .btn-cart {
+            float: right;
+            color: #7faaf0;
+            font-size: 20px;
+            margin: 10px 10px 0 0;
+            .custom {
+                background-color: #cd76e2;
+                margin-bottom: 6px;
+            }
+        }
     }
 }
 a {
